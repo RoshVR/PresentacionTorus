@@ -139,7 +139,7 @@
         .dot:hover { background-color: #D4AF37; opacity: 0.7; }
 
         .logo-img {
-            height: 80px;
+            height: 160px;
             width: auto;
             margin-bottom: 0.5rem;
         }
@@ -189,8 +189,17 @@
         <div class="slide">
             <div class="slide-content">
                 <h2 class="slide-title"><i data-lucide="shopping-cart" class="w-8 h-8"></i> Punto de Venta (POS)</h2>
-                <p class="slide-description">Interfaz ágil para ventas con búsqueda de productos, gestión de clientes, aplicación automática de promociones y deduce el stock en tiempo real.</p>
+                <p class="slide-description">Interfaz ágil para ventas con búsqueda de productos, búsqueda de clientes por NITO o huella dactilar, agregar o quitar productos seleccionados y control de cita obligatoria: el sistema exige seleccionar un socio con cita antes de poder gestionar la venta.</p>
                 <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/02-POS.png" alt="Punto de Venta" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 3: Cobro -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="receipt" class="w-8 h-8"></i> Módulo de Cobro</h2>
+                <p class="slide-description">Toma el pedido del Punto de Venta en tiempo real. Detecta automáticamente las promociones vigentes, deduce el stock al instante y permite seleccionar entre múltiples métodos de pago. Ticket digital listo para imprimir o enviar.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/10-Cobro.png" alt="Módulo de Cobro" class="slide-image" loading="lazy">
             </div>
         </div>
 
@@ -207,8 +216,8 @@
         <div class="slide">
             <div class="slide-content">
                 <h2 class="slide-title"><i data-lucide="users" class="w-8 h-8"></i> Administración de Clientes</h2>
-                <p class="slide-description">Registro completo de cada socio con su NITO COFEPRIS, datos de contacto, historial de compras y citas. Atención personalizada.</p>
-                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/04-Clientes.png" alt="Clientes" class="slide-image" loading="lazy">
+                <p class="slide-description">Registro completo de cada socio con su NITO, datos de contacto, historial de compras y citas. Cada perfil administra sus documentos (INE, comprobantes), estatus del permiso, registro de biométricos (huella dactilar) y fotografía del socio.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/11-Cliente-Detalles.png" alt="Detalles del Cliente" class="slide-image" loading="lazy">
             </div>
         </div>
 
@@ -239,29 +248,35 @@
             </div>
         </div>
 
-        <!-- Slide 8: Asistente Virtual -->
+        <!-- Slide 8: Chat Interno -->
         <div class="slide">
             <div class="slide-content">
-                <h2 class="slide-title"><i data-lucide="bot" class="w-8 h-8"></i> Asistente Virtual</h2>
-                <p class="slide-description">El chatbot responde preguntas frecuentes, guía el proceso de registro COFEPRIS, agenda citas y transfiere a un asesor humano cuando es necesario. Disponible 24/7 en la landing page.</p>
-                <div class="grid grid-cols-2 gap-3 w-full">
-                    <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/09a-Chatbot-Initial.png" alt="Asistente Virtual - Inicial" class="slide-image" loading="lazy" style="max-height: 50vh;">
-                    <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/09b-Chatbot-Response.png" alt="Asistente Virtual - Respuesta" class="slide-image" loading="lazy" style="max-height: 50vh;">
-                </div>
+                <h2 class="slide-title"><i data-lucide="messages-square" class="w-8 h-8"></i> Chat Interno en Tiempo Real</h2>
+                <p class="slide-description">Comunicación instantánea entre el equipo de trabajo con Socket.IO. Chats grupales y privados, estados de presencia (activo, ocupado, desconectado) y notificaciones de mensajes no leídos. Fomenta la colaboración interna sin salir de la plataforma.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/12-Chat-Interno.png" alt="Chat Interno" class="slide-image" loading="lazy">
             </div>
         </div>
 
-        <!-- Slide 9: Beneficios -->
+        <!-- Slide 9: Asistente Virtual -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="bot" class="w-8 h-8"></i> Asistente Virtual</h2>
+                <p class="slide-description">El chatbot responde preguntas frecuentes con información de Torus, guía el proceso de registro, agenda citas y transfiere a un asesor humano cuando es necesario. Disponible 24/7 en la landing page.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/09b-Chatbot-Response.png" alt="Asistente Virtual - Respuesta" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 10: Beneficios -->
         <div class="slide benefits-slide">
             <div class="slide-content">
                 <h1 class="text-4xl font-bold text-torus-dark flex items-center gap-3 mb-4"><i data-lucide="award" class="w-10 h-10"></i> Beneficios Clave</h1>
                 <ul class="list-disc list-inside text-left text-xl font-medium text-torus-dark space-y-3 max-w-2xl">
-                    <li><strong>Automatización:</strong> El chatbot responde preguntas frecuentes con información de Torus, identifica socios, consulta stock y agenda citas sin intervención humana.</li>
-                    <li><strong>Eficiencia Operacional:</strong> Centraliza ventas, inventario, clientes y citas en una sola plataforma.</li>
-                    <li><strong>Toma de Decisiones Informada:</strong> Dashboard en tiempo real con métricas y alertas de bajo stock.</li>
-                    <li><strong>Atención Personalizada:</strong> CRM con NITO, historial de compras y chat interno entre empleados.</li>
-                    <li><strong>Seguridad y Cumplimiento:</strong> Roles y permisos por usuario, historial de auditoría inmutable.</li>
-                    <li><strong>Escalabilidad:</strong> Construido con tecnologías modernas, listo para crecer con el negocio.</li>
+                    <li><strong>Operación Unificada:</strong> POS, Cobro, Inventario y Clientes trabajan como un solo sistema en tiempo real.</li>
+                    <li><strong>Automatización Inteligente:</strong> Chatbot 24/7 que responde FAQs, identifica socios, consulta stock y agenda citas automáticamente.</li>
+                    <li><strong>Cumplimiento Normativo:</strong> Roles, permisos, trazabilidad por sucursal y bitácora de auditoría inmutable.</li>
+                    <li><strong>Decisiones en Tiempo Real:</strong> Dashboard con métricas y alertas de bajo stock para actuar de inmediato.</li>
+                    <li><strong>Atención Personalizada:</strong> CRM con NITO, documentos, biométricos, fotografía y chat interno entre empleados.</li>
+                    <li><strong>Escalable y Moderno:</strong> Construido con tecnologías actuales, listo para crecer con su negocio.</li>
                 </ul>
             </div>
         </div>
