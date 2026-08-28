@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torus AC - Presentación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'torus-dark': '#111111',
+                        'torus-secondary': '#1C1C1C',
+                        'torus-border': '#333333',
+                        'torus-gold': '#D4AF37',
+                        'torus-gold-hover': '#E7C86A',
+                        'torus-light-text': '#EAEAEA',
+                        'torus-gray-text': '#888888',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #EAEAEA;
+            line-height: 1.6;
+        }
+        .slides-wrapper {
+            display: flex;
+            height: 100vh;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            align-items: center;
+        }
+        .slide {
+            flex-shrink: 0;
+            width: 100vw;
+            padding: 2.5rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+        }
+        .slide-content {
+            background-color: #1C1C1C;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 1100px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            align-items: center;
+        }
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #D4AF37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .slide-description {
+            font-size: 1.05rem;
+            color: #EAEAEA;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .slide-image {
+            width: 100%;
+            max-height: 58vh;
+            border-radius: 0.75rem;
+            border: 2px solid #D4AF37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            object-fit: contain;
+            background-color: #222;
+        }
+        .side-nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(28, 28, 28, 0.85);
+            color: #D4AF37;
+            border: 1px solid #333;
+            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            opacity: 0;
+            z-index: 10;
+        }
+        body:hover .side-nav-button { opacity: 0.7; }
+        .side-nav-button:hover { opacity: 1; background-color: #1C1C1C; }
+        .dots-navigation {
+            position: fixed;
+            bottom: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dot.active { background-color: #D4AF37; }
+        .dot:hover { background-color: #D4AF37; opacity: 0.7; }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-slide .slide-content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1C1C1C 100%);
+            border: 1px solid #D4AF37;
+            max-width: 800px;
+        }
+
+        .benefits-slide .slide-content {
+            background: linear-gradient(135deg, #D4AF37 0%, #E7C86A 100%);
+            max-width: 900px;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content { padding: 1.5rem; }
+            .slide-title { font-size: 1.5rem; }
+            .slide-description { font-size: 0.9rem; }
+            .slide-image { max-height: 35vh; }
+        }
+    </style>
+</head>
+<body class="bg-torus-dark text-torus-light-text antialiased">
+
+    <div id="slides-wrapper" class="slides-wrapper">
+
+        <!-- Slide 0: Welcome -->
+        <div class="slide welcome-slide">
+            <div class="slide-content">
+                <img src="logo.jpg" alt="Torus Logo" class="logo-img">
+                <h1 class="text-5xl font-bold text-torus-gold tracking-tight">Torus AC</h1>
+                <p class="text-2xl font-semibold text-torus-light-text mt-2">Cannabis Medicinal Regulado</p>
+                <p class="text-lg text-torus-gray-text mt-2">Plataforma integral de gestión operativa</p>
+                <div class="mt-6 flex items-center justify-center gap-6 text-torus-gray-text text-sm">
+                    <span class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4"></i> COFEPRIS</span>
+                    <span class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4"></i> +500 Socios</span>
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> 2 Sucursales</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 1: Dashboard -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="layout-dashboard" class="w-8 h-8"></i> Dashboard Interactivo</h2>
+                <p class="slide-description">Métricas clave del negocio en tiempo real: ventas diarias, citas agendadas, productos con bajo stock y tendencias visuales para toma de decisiones estratégicas.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/01-Dashboard.png" alt="Dashboard Torus" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 2: Punto de Venta -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="shopping-cart" class="w-8 h-8"></i> Punto de Venta (POS)</h2>
+                <p class="slide-description">Interfaz ágil para ventas con búsqueda de productos, gestión de clientes, aplicación automática de promociones y deduce el stock en tiempo real.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/02-POS.png" alt="Punto de Venta" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 3: Inventario -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="package" class="w-8 h-8"></i> Gestión de Inventario</h2>
+                <p class="slide-description">Control total de productos por sucursal con imágenes, alertas de bajo stock, seguimiento de movimientos y precios actualizados.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/03-Inventario.png" alt="Inventario" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 4: Clientes -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="users" class="w-8 h-8"></i> Administración de Clientes</h2>
+                <p class="slide-description">Registro completo de cada socio con su NITO COFEPRIS, datos de contacto, historial de compras y citas. Atención personalizada.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/04-Clientes.png" alt="Clientes" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 5: Citas -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="calendar-check" class="w-8 h-8"></i> Gestión de Citas</h2>
+                <p class="slide-description">Agenda citas de Registro (nuevos socios) y Retiro (socios con NITO activo). Horarios configurables por sucursal conslots de 15 minutos.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/05-Citas.png" alt="Citas" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 6: Promociones -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="gift" class="w-8 h-8"></i> Módulo de Promociones</h2>
+                <p class="slide-description">Crea campañas de descuento activas entre fechas específicas. Se aplican automáticamente en el POS al cerrar la venta.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/06-Promociones.png" alt="Promociones" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 7: Auditoría -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="clipboard-list" class="w-8 h-8"></i> Historial de Auditoría</h2>
+                <p class="slide-description">Registro detallado e inmutable de todas las acciones en el sistema: quién hizo qué, cuándo y desde qué sucursal. Cumplimiento normativo.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/07-Auditoria.png" alt="Auditoría" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 8: Landing + Chatbot -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="bot" class="w-8 h-8"></i> Asistente Virtual + Landing Page</h2>
+                <p class="slide-description">Landing page pública con tema oscuro donde visitantes pueden chatear con el bot, identificarce como socios con NITO o registrarse. El bot responde con Markdown, agenda citas y transfiere a humano.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/08-Landing.png" alt="Landing y Chatbot" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 9: Chatbot en acción -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i data-lucide="message-square" class="w-8 h-8"></i> Chatbot en Acción</h2>
+                <p class="slide-description">El asistente identifica al socio por teléfono, valida su NITO activo, consulta stock y promociones, agenda citas de Retiro y escala a humano cuando es necesario.</p>
+                <img src="https://raw.githubusercontent.com/RoshVR/imgpublic/refs/heads/main/09-Landing-ChatOpen.png" alt="Chatbot Torus" class="slide-image" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Slide 10: Beneficios -->
+        <div class="slide benefits-slide">
+            <div class="slide-content">
+                <h1 class="text-4xl font-bold text-torus-dark flex items-center gap-3 mb-4"><i data-lucide="award" class="w-10 h-10"></i> Beneficios Clave</h1>
+                <ul class="list-disc list-inside text-left text-xl font-medium text-torus-dark space-y-3 max-w-2xl">
+                    <li><strong>Eficiencia Operacional:</strong> Centraliza ventas, inventario, clientes y citas en una sola plataforma.</li>
+                    <li><strong>Toma de Decisiones Informada:</strong> Dashboard en tiempo real con métricas y alertas de bajo stock.</li>
+                    <li><strong>Atención Personalizada:</strong> CRM con NITO COFEPRIS, historial de compras y chat interno entre empleados.</li>
+                    <li><strong>Automatización:</strong> Chatbot que identifica socios, consulta stock y agenda citas sin intervención humana.</li>
+                    <li><strong>Seguridad y Cumplimiento:</strong> Roles y permisos por usuario, historial de auditoría inmutable.</li>
+                    <li><strong>Escalabilidad:</strong> Construido con tecnologías modernas, listo para crecer con el negocio.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="dots-navigation" id="dots-navigation"></div>
+
+    <button id="prev-slide" class="side-nav-button" style="left: 1.5rem;">
+        <i data-lucide="chevron-left" class="w-7 h-7"></i>
+    </button>
+    <button id="next-slide" class="side-nav-button" style="right: 1.5rem;">
+        <i data-lucide="chevron-right" class="w-7 h-7"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            const slides = document.querySelectorAll('.slide');
+            const wrapper = document.getElementById('slides-wrapper');
+            const dotsNav = document.getElementById('dots-navigation');
+            let current = 0;
+
+            wrapper.style.width = `${slides.length * 100}vw`;
+
+            function goTo(idx) {
+                current = Math.max(0, Math.min(idx, slides.length - 1));
+                wrapper.style.transform = `translateX(-${current * 100}vw)`;
+                updateDots();
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+
+            function updateDots() {
+                dotsNav.innerHTML = '';
+                slides.forEach((_, i) => {
+                    const d = document.createElement('div');
+                    d.className = 'dot' + (i === current ? ' active' : '');
+                    d.onclick = () => goTo(i);
+                    dotsNav.appendChild(d);
+                });
+            }
+
+            document.getElementById('prev-slide').onclick = () => goTo(current - 1);
+            document.getElementById('next-slide').onclick = () => goTo(current + 1);
+
+            document.onkeydown = (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+                else if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+            };
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+            document.addEventListener('touchend', e => {
+                const dx = touchStartX - e.changedTouches[0].clientX;
+                if (Math.abs(dx) > 50) { dx > 0 ? goTo(current + 1) : goTo(current - 1); }
+            });
+
+            updateDots();
+        });
+    </script>
+</body>
+</html>
